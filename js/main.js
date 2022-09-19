@@ -23,7 +23,6 @@ const winningCombos = [
     [4, 8, 12, 16],
 ];
 
-//why capitalized and why numbers in a string
 const PLAYER_LOOKUP = {
     '1': {
         name: 'Player1',
@@ -36,21 +35,71 @@ const PLAYER_LOOKUP = {
     };
 };
 
-
+const boardSize = 20;
 
 /*----- app's state (variables) -----*/ 
-let turn, board, winner;
-
+let board, winner;
+// let turn
 
 /*----- cached element references -----*/ 
 const messageDisplayEl = document.querySelector('h2');
 const resetBtnEl = document.getElementById('reset');
 const boardEl = document.getElementById('board');
 
-
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', handleResetClick);
 boardEl.addEventListener('click', handleBoardClick);
 
-
 /*----- functions -----*/
+function init() {
+    turn = 1;
+    board = [
+        [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    ];
+    winner = null;
+    render();
+};
+
+function handleResetClick() {
+    init();
+};
+
+function handleBoardClick(evt) {
+    if(winner) return;
+
+    if (evt.target.id !== 'board') {
+        const idx = evt.target.id[2];
+        if (!board[idx]) {
+            board[idx] = turn;
+            checkWin();
+            changeTurn()
+            render();
+            // computerChooses();
+        }
+    };
+};
+
+function render() {
+   if (!winner && board.every(square => square) {
+    return (messageDisplayEl.innerHTML = "It's a Tie!")
+   }) else if (!winner) {
+    return (messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[turn].name}'s turn`)
+   } else {
+    return (messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[winner].name}` Wins!)
+   };
+
+    board.forEach(square, idx) 
+};
+
+function changeTurn( {
+    turn *= -1;
+})
+
+function checkWin() {
+
+};
+
+// function computerChooses() {
+//     const randomIdx = Math.floor(Math.random() * board.length);
+//     computer.choice = board[randomIdx];
+// };
