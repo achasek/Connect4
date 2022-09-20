@@ -16,14 +16,26 @@ button {
     height: 56vh;
     width: 70vw;
     margin: 5% auto;
+    background: blue;
+    border: 10px solid darkblue;
 }
 
 .square {
     display: inline-block;
-    border: 1px solid black;
-    height: 20%;
+    height: 24%;
     width: 19%;
+    border-radius: 50%;
+    border: 5px solid darkblue;
+    background: white;
 }
+
+/* .player-piece {
+    background: red;
+}
+
+.computer-piece {
+    background: yellow;
+} */
 
 #message-box {
     height: 10%;
