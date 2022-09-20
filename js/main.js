@@ -38,8 +38,8 @@ const PLAYER_LOOKUP = {
 const boardSize = 20;
 
 /*----- app's state (variables) -----*/ 
-let board, winner;
-// let turn
+let turn, board, winner;
+
 
 /*----- cached element references -----*/ 
 const messageDisplayEl = document.querySelector('h2');
@@ -63,6 +63,10 @@ function init() {
 function handleResetClick() {
     init();
 };
+
+function handlueCPUClick() {
+    
+}
 
 function handleBoardClick(evt) {
     if(winner) return;
@@ -88,7 +92,13 @@ function render() {
     return (messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[winner].name}` Wins!)
    };
 
-    board.forEach(square, idx) 
+    board.forEach(function (square, idx) {
+        if(square) {
+            document.getElementById(`sq${idx}`).textContent = PLAYER_LOOKUP[square].symbol;
+        } else {
+            document.getElementById(`sq${idx}`).textContent = '';
+        };
+    });
 };
 
 function changeTurn( {
