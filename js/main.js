@@ -2,7 +2,7 @@
 const winningCombos = [
     //columns
     [0, 5, 10, 15],
-    [1, 6, 11,16],
+    [1, 6, 11, 16],
     [2, 7, 12, 17],
     [3, 8, 13, 18],
     [4, 9, 14, 19],
@@ -28,11 +28,11 @@ const PLAYER_LOOKUP = {
         name: 'Player1',
         symbol: 'O',
 
-    };
+    },
     '-1': {
         name: 'Computer',
         symbol: 'X',
-    };
+    },
 };
 
 const boardSize = 20;
@@ -44,18 +44,18 @@ let turn, board, winner;
 /*----- cached element references -----*/ 
 const messageDisplayEl = document.querySelector('h2');
 const resetBtnEl = document.getElementById('reset');
+// const cpuTurnEl = document.getElementById('CPU');
 const boardEl = document.getElementById('board');
 
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', handleResetClick);
 boardEl.addEventListener('click', handleBoardClick);
+// cpuTurnEl.addEventListener('click', handleCpuClick);
 
 /*----- functions -----*/
 function init() {
     turn = 1;
-    board = [
-        [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-    ];
+    board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
     winner = null;
     render();
 };
@@ -64,13 +64,16 @@ function handleResetClick() {
     init();
 };
 
-function handlueCPUClick() {
+// function handleCPUClick() {
     
-}
+// }
 
 function handleBoardClick(evt) {
-    if(winner) return;
-
+    console.log(evt)
+    if(winner) { 
+        console.log(winner)
+        return
+    }
     if (evt.target.id !== 'board') {
         const idx = evt.target.id[2];
         if (!board[idx]) {
@@ -84,32 +87,42 @@ function handleBoardClick(evt) {
 };
 
 function render() {
-   if (!winner && board.every(square => square) {
-    return (messageDisplayEl.innerHTML = "It's a Tie!")
-   }) else if (!winner) {
-    return (messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[turn].name}'s turn`)
+   if (!winner && board.every(square => square)) {
+    (messageDisplayEl.innerHTML = "It's a Tie!")
+   } else if (!winner) {
+    (messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[turn].name}'s turn`)
    } else {
-    return (messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[winner].name}` Wins!)
+    (messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[winner].name} Wins!`)
    };
-
-    board.forEach(function (square, idx) {
-        if(square) {
-            document.getElementById(`sq${idx}`).textContent = PLAYER_LOOKUP[square].symbol;
-        } else {
-            document.getElementById(`sq${idx}`).textContent = '';
-        };
-    });
+   
+   board.forEach(function (square, idx) {
+    if(square) {
+        document.getElementById(`sq${idx}`).textContent = PLAYER_LOOKUP[square].symbol;
+    } else {
+        document.getElementById(`sq${idx}`).textContent = '';
+    };
+});
 };
 
-function changeTurn( {
-    turn *= -1;
-})
+function changeTurn() {
+    turn = turn * -1
+}
 
 function checkWin() {
-
+    for (let combo of winningCombos) {
+        let totalToWin = 0;
+        combo.forEach(idx => {
+            totalToWin += board[idx]
+        })
+        if (Math.abs(totalToWin)=== 4) {
+            winner = turn;
+            break
+        }
+    }
 };
 
 // function computerChooses() {
 //     const randomIdx = Math.floor(Math.random() * board.length);
 //     computer.choice = board[randomIdx];
 // };
+init();
