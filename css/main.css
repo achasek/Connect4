@@ -16,7 +16,7 @@ button {
     height: 56vh;
     width: 70vw;
     margin: 5% auto;
-    background: blue;
+    background: linear-gradient(to right bottom, #5D69BE 50%, #c89FEB);
     border: 10px solid darkblue;
 }
 
@@ -29,17 +29,11 @@ button {
     background: white;
 }
 
-/* .player-piece {
-    background: red;
+#title-box {
+    
 }
-
-.computer-piece {
-    background: yellow;
-} */
 
 #message-box {
     height: 10%;
     margin: 5px 0 0 0;
 }
-
-/* 765x575 */
