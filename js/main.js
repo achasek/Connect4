@@ -1,11 +1,11 @@
 /*----- constants -----*/
 const PLAYER_LOOKUP = {
     '1': {
-        name: 'player1',
+        name: 'Player 1',
         color: 'red',
     },
     '-1': {
-        name: 'computer',
+        name: 'Computer',
         color: 'yellow',
     },
 };
@@ -99,7 +99,21 @@ function render() {
 };
 
 function checkWin() {
-    //google sliding window in cs
+    //checks rows
+    for(let i=0; i < board.length; i++) {
+        let winningTotal = 0;
+        for(let j=0; j <board.length[i]; j++) {
+            winningTotal += board[i][idx]
+            if(Math.abs(winningTotal) === 4) {
+                winner = turn
+                break
+            } else if (Math.abs(winningTotal) !== 4) {
+                winningTotal = 0;
+            }
+        }
+    }
+    //checks columns
+    // for()
 };
 
 
