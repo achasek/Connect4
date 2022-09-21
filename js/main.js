@@ -79,13 +79,12 @@ function changeTurn() {
 
 function render() {
     // if its tie, win, or currently someones turn
-    if(!winner) {
-        if (board.forEach((row, idx) => {
-             true
-            }) {
-            messageDisplayEl.innerHTML = "It's a tie!";
-            }
-        }
+    if (board.every(row => row.every(square => square))) {
+        messageDisplayEl.innerHTML = "It's a tie!"
+    } else if(!winner) {
+        messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[turn].name}'s Turn`
+    } else {
+        messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[winner].name} Wins!`
     }
 
     board.forEach((row, idx) => {

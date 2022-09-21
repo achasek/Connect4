@@ -13,8 +13,8 @@ button {
 }
 
 #board {
-    height: 56vh;
-    width: 70vw;
+    height: 70vh;
+    width: 56vw;
     margin: 5% auto;
     background: linear-gradient(to right bottom, #5D69BE 50%, #c89FEB);
     border: 10px solid darkblue;
