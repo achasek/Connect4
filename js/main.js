@@ -102,13 +102,14 @@ function render() {
 };
 
 function checkWin() {
-    checkRow(); 
+    checkRows(); 
     checkColumns();
+    checkDiagonals();
 }
 // }
     //row=i square=j
     //checkRow should add all values of the row and see if they = 4
-function checkRow() {
+function checkRows() {
     for(let row=0; row < board.length; row++) {
         let rowTotal = 0;
         for(let square=0; square <board[row].length; square++) {
@@ -116,8 +117,7 @@ function checkRow() {
             console.log(rowTotal)
             if(rowTotal === 3) {
                 winner = 1
-            }
-            else if(rowTotal === -3) {
+            } else if(rowTotal === -3) {
                 winner = -1
             }
         }
@@ -134,6 +134,19 @@ function checkColumns() {
                 winner = -1
             }
         } 
+    }
+}
+function checkDiagonals() {
+    for(let row=0; row < board.length; row++) {
+        if(board[0][0] && board[1][1] && board[2][2] && board[3][3]) {
+            winner = turn;
+        } else if(board[0][1] && board[1][2] && board[2][3] && board[3][4]) {
+            winner = turn;
+        } else if(board[0][4] && board[1][3] && board[2][2] && board[3][1]) {
+            winner = turn;
+        } else if(board[0][3] && board[1][2] && board[2][1] && board[3][0]) {
+            winner = turn;
+        }
     }
 }
 
