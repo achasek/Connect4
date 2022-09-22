@@ -10,6 +10,9 @@ const PLAYER_LOOKUP = {
     },
 };
 
+const HEIGHT = 4;
+const WIDTH = 5;
+
 /*----- app's state (variables) -----*/
 let turn, board, winner;
 
@@ -44,14 +47,13 @@ function init() {
 };
 
 function handleBoardClick(evt) {
-    // console.log(evt.target.id)
     if(winner) {
+        console.log(winner)
         return
     }
     if(evt.target.id !== 'board') {
         let rowIdx = evt.target.id[0]
         let columnIdx = evt.target.id[2]
-        console.log(rowIdx, columnIdx)
         rowIdx = columns[columnIdx];
         if (rowIdx < 0) {
             return;
@@ -59,8 +61,8 @@ function handleBoardClick(evt) {
         
         if(!board[rowIdx][columnIdx]) {
             board[rowIdx][columnIdx] = turn
-            checkWin();
             changeTurn();
+            checkWin();
             render();
         }
 
@@ -81,12 +83,10 @@ function render() {
     // if its tie, win, or currently someones turn
     console.log(winner)
     if ((winner === null) && (board.every(row => row.every(square => square)))) {
-        console.log('its a tie')
         messageDisplayEl.innerHTML = `<span class="h2Text">It's a tie</span>`
     } else if(winner === null) {
         messageDisplayEl.innerHTML = `<span class="h2Text">${PLAYER_LOOKUP[turn].name}'s</span> Turn`
     } else {
-        console.log(`PLAYER_LOOKUP[winner].name`, PLAYER_LOOKUP[winner].name)
         messageDisplayEl.innerHTML = `<span class="h2Text">${PLAYER_LOOKUP[winner].name}</span> Wins!`
     }
 
@@ -102,43 +102,40 @@ function render() {
 };
 
 function checkWin() {
-    //checks rows
-    for(let i=0; i < board.length; i++) {
-        let winningTotal = 0;
-        for(let j=0; j <board[i].length; j++) {
-            if(board[i][j] !== null && board[i][j-1] !== null) {
-                if(board[i][j] === board[i][j-1]) {
-                    winningTotal += 1
-                        if(winningTotal === 3) {
-                            winner = turn
-                            break
-                    }
-                }
+    checkRow(); 
+    checkColumns();
+}
+// }
+    //row=i square=j
+    //checkRow should add all values of the row and see if they = 4
+function checkRow() {
+    for(let row=0; row < board.length; row++) {
+        let rowTotal = 0;
+        for(let square=0; square <board[row].length; square++) {
+            rowTotal = rowTotal + board[row][square]
+            console.log(rowTotal)
+            if(rowTotal === 3) {
+                winner = 1
+            }
+            else if(rowTotal === -3) {
+                winner = -1
             }
         }
     }
-// checks columns
-    // for(let i=0; i < board.length; i++) {
-    //     let winningTotal = 0;
-    //     for(let j=0; j < board[i].length; j++) {
-    //         console.log(winningTotal)
-    //         if(board[i][j] !== null) {
-    //             winningTotal += 1
-    //                 // for(let i=0; i < board.length[i+1]; i++) {
-    //                 //     for(let j=0; j < board[i+1].length; j++) {
-    //                         if(board[i][j] !== null && board[i+1][j] !== null && board[i][j] === board[i+1[j]) {
-    //                             winningTotal += 1
-    //                             if(winningTotal === 3) {
-    //                                 winner = turn
-    //                                 break
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-                    
-    //         }
-        }
-
+}
+function checkColumns() {
+    for(let column=0; column < WIDTH; column++) {
+        let columnTotal = 0;
+        for(let row=0; row < board.length; row++) {
+            columnTotal = columnTotal + board[row][column]
+            if(columnTotal === 4) {
+                winner = 1
+            } else if (columnTotal === -4) {
+                winner = -1
+            }
+        } 
+    }
+}
 
 
 
