@@ -109,18 +109,36 @@ function checkWin() {
             if(board[i][j] !== null && board[i][j-1] !== null) {
                 if(board[i][j] === board[i][j-1]) {
                     winningTotal += 1
-                    console.log(winningTotal)
                         if(winningTotal === 3) {
-                        winner = turn
-                        break
+                            winner = turn
+                            break
+                    }
                 }
             }
         }
     }
-}
-//checks columns
-    // for()
-};
+// checks columns
+    // for(let i=0; i < board.length; i++) {
+    //     let winningTotal = 0;
+    //     for(let j=0; j < board[i].length; j++) {
+    //         console.log(winningTotal)
+    //         if(board[i][j] !== null) {
+    //             winningTotal += 1
+    //                 // for(let i=0; i < board.length[i+1]; i++) {
+    //                 //     for(let j=0; j < board[i+1].length; j++) {
+    //                         if(board[i][j] !== null && board[i+1][j] !== null && board[i][j] === board[i+1[j]) {
+    //                             winningTotal += 1
+    //                             if(winningTotal === 3) {
+    //                                 winner = turn
+    //                                 break
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+                    
+    //         }
+        }
+
 
 
 
