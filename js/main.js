@@ -16,21 +16,14 @@ const WIDTH = 5;
 /*----- app's state (variables) -----*/
 let turn, board, winner;
 
-
-
 /*----- cached element references -----*/ 
 let messageDisplayEl = document.querySelector('h2');
 let resetBtnEl = document.getElementById('reset');
 let boardEl = document.getElementById('board');
 
-
-
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', handleResetClick);
 boardEl.addEventListener('click', handleBoardClick); 
-
-
-
 
 /*----- functions -----*/
 function init() {
@@ -106,15 +99,12 @@ function checkWin() {
     checkColumns();
     checkDiagonals();
 }
-// }
-    //row=i square=j
-    //checkRow should add all values of the row and see if they = 4
+
 function checkRows() {
     for(let row=0; row < board.length; row++) {
         let rowTotal = 0;
         for(let square=0; square <board[row].length; square++) {
             rowTotal = rowTotal + board[row][square]
-            console.log(rowTotal)
             if(rowTotal === 3) {
                 winner = 1
             } else if(rowTotal === -3) {
@@ -123,6 +113,7 @@ function checkRows() {
         }
     }
 }
+
 function checkColumns() {
     for(let column=0; column < WIDTH; column++) {
         let columnTotal = 0;
@@ -136,6 +127,7 @@ function checkColumns() {
         } 
     }
 }
+
 function checkDiagonals() {
     for(let row=0; row < board.length; row++) {
         if(board[0][0] && board[1][1] && board[2][2] && board[3][3]) {
@@ -149,7 +141,5 @@ function checkDiagonals() {
         }
     }
 }
-
-
 
 init();
