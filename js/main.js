@@ -79,12 +79,15 @@ function changeTurn() {
 
 function render() {
     // if its tie, win, or currently someones turn
-    if (board.every(row => row.every(square => square))) {
-        messageDisplayEl.innerHTML = "It's a tie!"
-    } else if(!winner) {
-        messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[turn].name}'s Turn`
+    console.log(winner)
+    if ((winner === null) && (board.every(row => row.every(square => square)))) {
+        console.log('its a tie')
+        messageDisplayEl.innerHTML = `<span class="h2Text">It's a tie</span>`
+    } else if(winner === null) {
+        messageDisplayEl.innerHTML = `<span class="h2Text">${PLAYER_LOOKUP[turn].name}'s</span> Turn`
     } else {
-        messageDisplayEl.innerHTML = `${PLAYER_LOOKUP[winner].name} Wins!`
+        console.log(`PLAYER_LOOKUP[winner].name`, PLAYER_LOOKUP[winner].name)
+        messageDisplayEl.innerHTML = `<span class="h2Text">${PLAYER_LOOKUP[winner].name}</span> Wins!`
     }
 
     board.forEach((row, idx) => {
@@ -102,17 +105,20 @@ function checkWin() {
     //checks rows
     for(let i=0; i < board.length; i++) {
         let winningTotal = 0;
-        for(let j=0; j <board.length[i]; j++) {
-            winningTotal += board[i][idx]
-            if(Math.abs(winningTotal) === 4) {
-                winner = turn
-                break
-            } else if (Math.abs(winningTotal) !== 4) {
-                winningTotal = 0;
+        for(let j=0; j <board[i].length; j++) {
+            if(board[i][j] !== null && board[i][j-1] !== null) {
+                if(board[i][j] === board[i][j-1]) {
+                    winningTotal += 1
+                    console.log(winningTotal)
+                        if(winningTotal === 3) {
+                        winner = turn
+                        break
+                }
             }
         }
     }
-    //checks columns
+}
+//checks columns
     // for()
 };
 

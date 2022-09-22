@@ -1,19 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-#info-box {
-    margin-top: 5%;
-}
-
 body {
     text-align: center;
+    background: linear-gradient(white 80%, rgb(230, 95, 110))
 }
 
 button {
     margin: 10px;
+    font-family: 'Bungee Spice', cursive;
+    font-size: 20px;
+    border: 2px solid grey;
 }
 
 #board {
@@ -34,10 +37,27 @@ button {
 }
 
 #title-box {
-    
+    font-family: 'Shadows Into Light';
+    font-size: 25px;
+    color: red;
 }
 
 #message-box {
     height: 10%;
     margin: 5px 0 0 0;
+}
+
+h2 {
+    font-family: 'Shadows Into Light'; 
+    font-size: 30px;
+}
+
+.h2Text {
+    color: red;
+    font-family: 'Shadows Into Light';
+    font-weight: bold;
+}
+
+.t {
+    font-size: 55px;
 }
