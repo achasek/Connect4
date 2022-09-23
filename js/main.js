@@ -41,7 +41,6 @@ function init() {
 
 function handleBoardClick(evt) {
     if(winner) {
-        console.log(winner)
         return
     }
     if(evt.target.id !== 'board') {
@@ -73,8 +72,6 @@ function changeTurn() {
 };
 
 function render() {
-    // if its tie, win, or currently someones turn
-    console.log(winner)
     if ((winner === null) && (board.every(row => row.every(square => square)))) {
         messageDisplayEl.innerHTML = `<span class="h2Text">It's a tie</span>`
     } else if(winner === null) {
@@ -141,20 +138,5 @@ function checkDiagonals() {
         }
     }
 }
-
-// function computerChooses() {
-//     for(let row=0; row < board.length; row++) {
-//         for(let square=0; square <board[row].length; square++) {
-//             if(board[row][square] === null) {
-//                 const randomIdx1 = Math.floor(Math.random() * 3);
-//                 const randomIdx2 = Math.floor(Math.random() * 4);
-//                 const idx1 = evt.target.id[0];
-//                 const idx2 = evt.target.id[2];
-//                 idx1 = randomIdx1;
-//                 idx2 = randomIdx2;
-//             }
-//         }
-//     }
-// }
 
 init();
