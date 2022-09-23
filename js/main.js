@@ -102,9 +102,9 @@ function checkRows() {
         let rowTotal = 0;
         for(let square=0; square <board[row].length; square++) {
             rowTotal = rowTotal + board[row][square]
-            if(rowTotal === 3) {
+            if(rowTotal === 4) {
                 winner = 1
-            } else if(rowTotal === -3) {
+            } else if(rowTotal === -4) {
                 winner = -1
             }
         }
