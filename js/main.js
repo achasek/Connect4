@@ -94,17 +94,18 @@ function render() {
 function checkWin() {
     checkRows(); 
     checkColumns();
-    checkDiagonals();
+    checkDiagonalsP1();
+    checkDiagonalsCPU();
 }
 
 function checkRows() {
     for(let row=0; row < board.length; row++) {
         let rowTotal = 0;
-        for(let square=0; square <board[row].length; square++) {
+        for(let square=0; square < board[row].length; square++) {
             rowTotal = rowTotal + board[row][square]
-            if(rowTotal === 4) {
+            if(rowTotal === 3) {
                 winner = 1
-            } else if(rowTotal === -4) {
+            } else if(rowTotal === -3) {
                 winner = -1
             }
         }
@@ -125,16 +126,30 @@ function checkColumns() {
     }
 }
 
-function checkDiagonals() {
+function checkDiagonalsP1() {
     for(let row=0; row < board.length; row++) {
-        if(board[0][0] && board[1][1] && board[2][2] && board[3][3]) {
-            winner = turn;
-        } else if(board[0][1] && board[1][2] && board[2][3] && board[3][4]) {
-            winner = turn;
-        } else if(board[0][4] && board[1][3] && board[2][2] && board[3][1]) {
-            winner = turn;
-        } else if(board[0][3] && board[1][2] && board[2][1] && board[3][0]) {
-            winner = turn;
+        if(board[0][0] === 1 && board[1][1] === 1 && board[2][2] === 1 && board[3][3] === 1) {
+            winner = 1;
+        } else if(board[0][1] === 1 && board[1][2] === 1 && board[2][3] === 1 && board[3][4] === 1) {
+            winner = 1;
+        } else if(board[0][4] === 1 && board[1][3] === 1 && board[2][2] === 1 && board[3][1] === 1) {
+            winner = 1;
+        } else if(board[0][3] === 1 && board[1][2] ===1 && board[2][1] === 1 && board[3][0] === 1) {
+            winner = 1;
+        }
+    }
+}
+
+function checkDiagonalsCPU() {
+    for(let row=0; row < board.length; row++) {
+        if(board[0][0] === -1 && board[1][1] === -1 && board[2][2] === -1 && board[3][3] === -1) {
+            winner = -1;
+        } else if(board[0][1] === -1 && board[1][2] === -1 && board[2][3] === -1 && board[3][4] === -1) {
+            winner = -1;
+        } else if(board[0][4] === -1 && board[1][3] === -1 && board[2][2] === -1 && board[3][1] === -1) {
+            winner = -1;
+        } else if(board[0][3] === -1 && board[1][2] === -1 && board[2][1] === -1 && board[3][0] === -1) {
+            winner = -1;
         }
     }
 }
