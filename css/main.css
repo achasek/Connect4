@@ -19,6 +19,12 @@ button {
     border: 2px solid grey;
 }
 
+button:hover {
+    box-shadow: 10px 5px 5px black;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
 #board {
     height: 70vh;
     width: 56vw;

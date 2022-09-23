@@ -6,6 +6,10 @@ A simple game of Connect4 using HTML, CSS, and Javascript <br>
 
 
 <!-- ![Uploading Screen Shot 2022-09-23 at 9.17.41 AM.png…]() -->
+<img src="https://imgur.com/bd608lH">
+
+
+
 
 
 Planned features ahead <br>
