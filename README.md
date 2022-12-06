@@ -1,25 +1,27 @@
-Connect 4 <br>
+## Connect 4 <br>
 
 A simple game of Connect4 using HTML, CSS, and Javascript <br>
 
 <a href="https://achasek.github.io/Connect4/">Play the game here!</a>
 
 
-<!-- ![Uploading Screen Shot 2022-09-23 at 9.17.41 AM.png…]() -->
-<img src="https://imgur.com/bd608lH">
+## Getting Started:
+The site can be found at <a href="https://sometrails96.herokuapp.com/">here</a>
 
 
+The source code can be found <a href="https://github.com/achasek/sometrails">here</a>
 
 
+## Screenshots:
 
-Planned features ahead <br>
--Animations for the pieces dropping into the board <br>
--Ability to choose board size <br>
--Automated CPU turn <br>
--Box shadow animation for hovering over the button <br>
+<img src="./screenshot/ss1.png" width="900">
 
+## Technologies Used:
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
 
-Technologies Used <br>
--HTML <br>
--CSS <br>
--JavaScript <br>
+## Coming Soon
+- Computer Turns
+- Updated Game Logic
