@@ -6,7 +6,7 @@ A simple game of Connect4 using HTML, CSS, and Javascript <br>
 
 
 ## Getting Started:
-The site can be found at <a href="hhttps://achasek.github.io/Connect4/">here</a>
+The site can be found at <a href="https://achasek.github.io/Connect4/">here</a>
 
 
 The source code can be found <a href="https://github.com/achasek/Connect4">here</a>
