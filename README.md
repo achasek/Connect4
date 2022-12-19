@@ -6,10 +6,10 @@ A simple game of Connect4 using HTML, CSS, and Javascript <br>
 
 
 ## Getting Started:
-The site can be found at <a href="https://sometrails96.herokuapp.com/">here</a>
+The site can be found at <a href="hhttps://achasek.github.io/Connect4/">here</a>
 
 
-The source code can be found <a href="https://github.com/achasek/sometrails">here</a>
+The source code can be found <a href="https://github.com/achasek/Connect4">here</a>
 
 
 ## Screenshots:
